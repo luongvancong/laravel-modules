@@ -19,6 +19,7 @@ class ModuleGeneratorTest extends BaseTestCase
     {
         parent::setUp();
         $this->modulePath = base_path('modules/Blog');
+
         $this->finder = $this->app['files'];
     }
 

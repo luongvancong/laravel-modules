@@ -312,11 +312,11 @@ class ModuleGenerator extends Generator
      */
     public function generateResources()
     {
-        $this->console->call('module:make-seed', [
-            'name' => $this->getName(),
-            'module' => $this->getName(),
-            '--master' => true,
-        ]);
+        // $this->console->call('module:make-seed', [
+        //     'name' => $this->getName(),
+        //     'module' => $this->getName(),
+        //     '--master' => true,
+        // ]);
 
         $this->console->call('module:make-provider', [
             'name' => $this->getName() . 'ServiceProvider',

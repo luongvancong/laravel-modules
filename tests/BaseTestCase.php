@@ -10,7 +10,6 @@ abstract class BaseTestCase extends OrchestraTestCase
     public function setUp()
     {
         parent::setUp();
-
         // $this->setUpDatabase();
     }
 
