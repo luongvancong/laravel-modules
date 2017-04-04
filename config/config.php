@@ -95,7 +95,7 @@ return [
 
         'generator' => [
             // 'assets' => 'Assets',
-            'config' => 'Config',
+            // 'config' => 'Config',
             // 'command' => 'Console',
             // 'event' => 'Events',
             // 'listener' => 'Events/Handlers',
