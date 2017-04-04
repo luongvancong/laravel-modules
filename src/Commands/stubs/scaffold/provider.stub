@@ -42,7 +42,7 @@ class $CLASS$ extends ServiceProvider
     protected function registerConfig()
     {
         $this->mergeConfigFrom(
-            __DIR__.'/..//config.php', '$LOWER_NAME$'
+            __DIR__.'/../Config/config.php', '$LOWER_NAME$'
         );
     }
 
