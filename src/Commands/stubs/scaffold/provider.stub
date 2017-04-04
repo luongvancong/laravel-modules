@@ -20,6 +20,7 @@ class $CLASS$ extends ServiceProvider
      */
     public function boot()
     {
+        $this->registerConfig();
         $this->registerViews();
     }
 
@@ -33,6 +34,18 @@ class $CLASS$ extends ServiceProvider
         // I do not want to load anything ahihi
     }
 
+    /**
+     * Register config.
+     *
+     * @return void
+     */
+    protected function registerConfig()
+    {
+        $this->mergeConfigFrom(
+            __DIR__.'/..//config.php', '$LOWER_NAME$'
+        );
+    }
+
 
 
     /**
@@ -42,8 +55,6 @@ class $CLASS$ extends ServiceProvider
      */
     public function registerViews()
     {
-        $viewPath = base_path('resources/views/modules/$LOWER_NAME$');
-
         $sourcePath = __DIR__.'/../$PATH_VIEWS$';
 
         $this->loadViewsFrom(array_merge(array_map(function ($path) {
