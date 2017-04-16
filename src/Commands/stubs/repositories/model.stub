@@ -1,0 +1,10 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Illuminate\Database\Eloquent\Model;
+
+class $MODULE_NAME$ extends Model {
+
+    protected $guarded = ['id', '_token'];
+}

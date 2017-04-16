@@ -1,0 +1,16 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Nht\Hocs\Core\BaseRepository;
+
+class Db$MODULE_NAME$Repository extends BaseRepository implements $MODULE_NAME$Repository {
+
+    /**
+     * @param \Modules\Repositories\$MODULE_NAME$ $model
+     */
+    public function __construct($MODULE_NAME$ $model)
+    {
+        $this->model = $model;
+    }
+}

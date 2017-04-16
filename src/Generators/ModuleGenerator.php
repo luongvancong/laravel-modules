@@ -276,7 +276,72 @@ class ModuleGenerator extends Generator
             $this->filesystem->makeDirectory($path, 0755, true);
 
             $this->generateGitKeep($path);
+
+            $this->generateRepositoryFiles($folder, $path);
         }
+    }
+
+    public function generateRepositoryFiles($folder, $path)
+    {
+        if($folder == 'Repositories') {
+            $modelPath = $repositoryPath = $path.'/'.$this->getName().'.php';
+            $repositoryPath = $path.'/'.$this->getName().'Repository.php';
+            $dbRepositoryPath = $path.'/'.$this->getName().'DbRepository.php';
+
+            $this->filesystem->put($modelPath, $this->getContentModel($modelPath));
+            $this->filesystem->put($repositoryPath, $this->getContentRepository($repositoryPath));
+            $this->filesystem->put($dbRepositoryPath, $this->getContentDbRepository($dbRepositoryPath));
+        }
+    }
+
+    public function getContentModel($path)
+    {
+        $stubPath = realpath(__DIR__ . '/../Commands/stubs/repositories/model.stub');
+        $namespace = $this->getModuleNamespaceReplacement().'\\'.$this->getName().'\\Repositories';
+
+        $content = file_get_contents($stubPath);
+
+        $replacements = [
+            '$NAMESPACE$' => $namespace,
+            '$MODULE_NAME$' => $this->getName()
+        ];
+
+        $content = str_replace(array_keys($replacements), array_values($replacements), $content);
+
+        return $content;
+    }
+
+    public function getContentRepository($path)
+    {
+        $stubPath = realpath(__DIR__ . '/../Commands/stubs/repositories/repository.stub');
+        $namespace = $this->getModuleNamespaceReplacement().'\\'.$this->getName().'\\Repositories';
+
+        $content = file_get_contents($stubPath);
+
+        $replacements = [
+            '$NAMESPACE$' => $namespace,
+            '$MODULE_NAME$' => $this->getName()
+        ];
+
+        $content = str_replace(array_keys($replacements), array_values($replacements), $content);
+
+        return $content;
+    }
+
+    public function getContentDbRepository($path)
+    {
+        $stubPath = realpath(__DIR__ . '/../Commands/stubs/repositories/dbrepository.stub');
+        $namespace = $this->getModuleNamespaceReplacement().'\\'.$this->getName().'\\Repositories';
+
+        $content = file_get_contents($stubPath);
+
+        $replacements = [
+            '$NAMESPACE$' => $namespace,
+            '$MODULE_NAME$' => $this->getName()
+        ];
+
+        $content = str_replace(array_keys($replacements), array_values($replacements), $content);
+        return $content;
     }
 
     /**
