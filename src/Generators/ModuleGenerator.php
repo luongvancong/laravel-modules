@@ -286,7 +286,7 @@ class ModuleGenerator extends Generator
         if($folder == 'Repositories') {
             $modelPath = $repositoryPath = $path.'/'.$this->getName().'.php';
             $repositoryPath = $path.'/'.$this->getName().'Repository.php';
-            $dbRepositoryPath = $path.'/'.$this->getName().'DbRepository.php';
+            $dbRepositoryPath = $path.'/Db'.$this->getName().'Repository.php';
 
             $this->filesystem->put($modelPath, $this->getContentModel($modelPath));
             $this->filesystem->put($repositoryPath, $this->getContentRepository($repositoryPath));
