@@ -37,6 +37,5 @@
     "psr-4": {
       "Nwidart\\Modules\\Tests\\": "tests"
     }
-  },
-  "prefer-stable": true
+  }
 }
